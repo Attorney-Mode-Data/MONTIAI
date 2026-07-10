@@ -1,0 +1,16 @@
+Main Trust Ledger Base Core
+Trust Services Core Account Address: mtd1montidroidbankingtrust77fa2
+Corporate Parent: John Charles Monti Created MontiDroid Bank and Trust
+2. Connected Channel Routing & Accounts
+Square Corporate Channel
+Parent Institution: John Charles Monti Created MontiDroid Bank and Trust
+Routing Directives (Routing/Gateway ID): SQ-MTD-990-2189
+Account Ledger Address: mtd1squareaccounts8839a
+Gateway Status: CHARTERED - ONLINE
+Current Clearing Balance: $12,500,000.00 MTD-USD
+Zelle Liquidity Interface
+Parent Institution: John Charles Monti Created MontiDroid Bank and Trust
+Routing / P2P API Endpoint: ZEL-MTD-111-9807
+Account Ledger Address: mtd1zelleaccounts1120f
+System Interface: AUTHORIZED - INTEGRATED
+Current Clearing Balance: $8,542,000.00 MTD-USD
