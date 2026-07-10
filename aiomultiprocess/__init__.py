@@ -1,4 +1,4 @@
-# Copyright 2022 Amethyst Reese
+# Copyright 2022 monti_string 
 # Licensed under the MIT license
 
 """
