@@ -5,7 +5,7 @@
 AsyncIO version of the standard multiprocessing module
 """
 
-__author__ = "Amethyst Reese"
+__author__ = "monti_string"
 
 from .__version__ import __version__
 from .core import Process, set_context, set_start_method, Worker
