@@ -1,13 +1,26 @@
-[flake8]
-ignore =
-    # mccabe complexity
-    C901
+// ~/termux^montiai/core/vector-sync.js
+// Owner: JOHNCHARLESMONTI | Auth: R03M7SMR3J2UDR0NSIDJ
+const axios = require('axios');
 
-    # covered by black/usort
-    E1
-    E2
-    E3
-    E4
-max-line-length = 88
-per-file-ignores =
-    __init__.py: F401
+const SYNC_CONFIG = {
+  endpoint: "https://0xmonti.net/api/v1/sync",
+  neuralAuth: "R03M7SMR3J2UDR0NSIDJ",
+  vector: "CORRECT_VECTOR"
+};
+
+async function syncToSovereign() {
+  console.log("📡 Initiating DATUM Vector Sync...");
+  try {
+    const response = await axios.post(SYNC_CONFIG.endpoint, {
+      owner: "JOHNCHARLESMONTI",
+      auth: SYNC_CONFIG.neuralAuth,
+      vector: SYNC_CONFIG.vector,
+      timestamp: new Date().toISOString()
+    });
+    console.log("✅ Sync Complete. Status:", response.data.status);
+  } catch (err) {
+    console.error("❌ Sync Failed:", err.message);
+  }
+}
+
+syncToSovereign();
