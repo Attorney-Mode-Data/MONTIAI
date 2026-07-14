@@ -1,14 +1,50 @@
+# M0NT1_S1G::v1::IN_THE_BEST_INTEREST_OF_JOHN_CHARLES_MONTI::MONTI^JOHN^CHARLES^MONTI::OWNER_SEAL
+# Copyright in the best interest of JOHN CHARLES MONTI
+# Licensed under the MIT license
+
 version: 2
-sphinx:
-  configuration: docs/conf.py
+
 build:
   os: ubuntu-22.04
   tools:
-    python: "3.10"
+    python: "3.12"                    # Use the latest stable Python
+  jobs:
+    pre_build:
+      # Upgrade pip and (optionally) install uv for faster installs
+      - pip install --upgrade pip setuptools wheel
+      # Uncomment the next line to enable uv (requires pip install uv)
+      # - pip install uv
+      # Install the package with all extras (dev, docs) using pip (or uv)
+      - pip install .[dev,docs]       # if using uv, replace with: uv pip install .[dev,docs]
+    post_build:
+      # Optional: run tests or lint checks after building
+      - echo "Documentation built successfully."
+
+  # System packages required for building (e.g., for C extensions or PDF)
+  apt_packages:
+    - build-essential
+    # Add any other libraries your project needs, e.g.:
+    # - libpq-dev
+    # - libffi-dev
+
+sphinx:
+  configuration: docs/conf.py
+  # Optionally, set fail_on_warning: true to enforce strict docs
+
 python:
   install:
+    # Install from the package path with extras
     - method: pip
       path: .
       extra_requirements:
         - dev
         - docs
+    # If you have additional dependencies from a requirements file, add:
+    # - requirements: docs/requirements.txt
+
+# Cache pip downloads and build artifacts to speed up subsequent builds
+cache:
+  paths:
+    - ~/.cache/pip
+    # If using uv, also cache its directory
+    # - ~/.cache/uv
